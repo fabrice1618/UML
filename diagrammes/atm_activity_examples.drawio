@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="01 - Éléments de base — DAB Retrait">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" page="1" pageWidth="1600" pageHeight="900" math="0" background="#ffffff">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="3" value="" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#111111;strokeColor=#111111;" vertex="1" parent="1">
+          <mxGeometry x="80" y="120" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="4" value="Insérer la carte" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="150" y="110" width="180" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="5" value="Saisir le code PIN" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="380" y="110" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="6" value="PIN valide ?" style="shape=rhombus;whiteSpace=wrap;html=1;fillColor=#f3e5f5;strokeColor=#6a1b9a;" vertex="1" parent="1">
+          <mxGeometry x="620" y="110" width="120" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="7" value="Afficher le menu" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="800" y="110" width="220" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="8" value="" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#c62828;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="110" width="36" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="9" value="" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#c62828;strokeColor=#c62828;" vertex="1" parent="1">
+          <mxGeometry x="1088" y="118" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="10" value="" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1565c0;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="680" y="260" width="36" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="11" value="" style="shape=line;strokeWidth=3;strokeColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="696" y="276" width="24" height="4" as="geometry"/>
+        </mxCell>
+        <mxCell id="12" value="" style="shape=line;strokeWidth=3;strokeColor=#1565c0;rotation=90;" vertex="1" parent="1">
+          <mxGeometry x="696" y="276" width="24" height="4" as="geometry"/>
+        </mxCell>
+        <mxCell id="13" value="Afficher erreur PIN" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="500" y="260" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="14" value="Continuer" style="shape=rhombus;whiteSpace=wrap;html=1;fillColor=#ede7f6;strokeColor=#4527a0;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="950" y="190" width="120" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;endFill=1;" edge="1" parent="1" source="3" target="4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;endFill=1;" edge="1" parent="1" source="4" target="5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;endFill=1;" edge="1" parent="1" source="5" target="6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="18" value="[valide]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;endFill=1;" edge="1" parent="1" source="6" target="7">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="19" value="[invalide]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;endFill=1;" edge="1" parent="1" source="6" target="13">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="20" value="" style="endArrow=oval;endFill=0;strokeColor=#1565c0;" edge="1" parent="1" source="13" target="10">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;endFill=1;" edge="1" parent="1" source="7" target="14">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;endFill=1;" edge="1" parent="1" source="14" target="8">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="23" value="Exemple: transitions avec gardes [valide]/[invalide]" style="shape=note;whiteSpace=wrap;html=1;fillColor=#fffde7;strokeColor=#f9a825;" vertex="1" parent="1">
+          <mxGeometry x="70" y="50" width="360" height="40" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="02 - Parallélisme — Comptes et Journal">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" page="1" pageWidth="1600" pageHeight="900" math="0" background="#ffffff">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="24" value="" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#111111;strokeColor=#111111;" vertex="1" parent="1">
+          <mxGeometry x="80" y="120" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="25" value="Choisir ‘Retrait’" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="140" y="105" width="240" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="26" value="" style="shape=rect;rounded=0;whiteSpace=wrap;html=1;fillColor=#212121;strokeColor=#212121;" vertex="1" parent="1">
+          <mxGeometry x="410" y="120" width="160" height="8" as="geometry"/>
+        </mxCell>
+        <mxCell id="27" value="Vérifier solde (banque)" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="620" y="60" width="260" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="28" value="Écrire entrée journal" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="620" y="160" width="260" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="29" value="" style="shape=rect;rounded=0;whiteSpace=wrap;html=1;fillColor=#212121;strokeColor=#212121;" vertex="1" parent="1">
+          <mxGeometry x="920" y="120" width="160" height="8" as="geometry"/>
+        </mxCell>
+        <mxCell id="30" value="Afficher confirmation" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="105" width="260" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="31" value="" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#c62828;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="1410" y="110" width="36" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="32" value="" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#c62828;strokeColor=#c62828;" vertex="1" parent="1">
+          <mxGeometry x="1418" y="118" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="33" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;endFill=1;" edge="1" parent="1" source="24" target="25">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="34" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;endFill=1;" edge="1" parent="1" source="25" target="26">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="35" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;endFill=1;" edge="1" parent="1" source="26" target="27">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;endFill=1;" edge="1" parent="1" source="26" target="28">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="37" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;endFill=1;" edge="1" parent="1" source="27" target="29">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="38" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;endFill=1;" edge="1" parent="1" source="28" target="29">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="39" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;endFill=1;" edge="1" parent="1" source="29" target="30">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="40" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;endFill=1;" edge="1" parent="1" source="30" target="31">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="03 - Flux d’objet — Billets &amp; Reçu">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" page="1" pageWidth="1600" pageHeight="900" math="0" background="#ffffff">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="41" value="" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#111111;strokeColor=#111111;" vertex="1" parent="1">
+          <mxGeometry x="80" y="140" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="42" value="Calculer la répartition des billets" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="140" y="125" width="260" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="43" value="Obj: LotBillets" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#fffde7;strokeColor=#f9a825;" vertex="1" parent="1">
+          <mxGeometry x="450" y="100" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="44" value="Distribuer les billets" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="700" y="125" width="260" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="45" value="Obj: ReçuPDF" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#fffde7;strokeColor=#f9a825;" vertex="1" parent="1">
+          <mxGeometry x="700" y="230" width="220" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="46" value="Imprimer le reçu" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="980" y="225" width="240" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="47" value="" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#c62828;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="130" width="36" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="48" value="" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#c62828;strokeColor=#c62828;" vertex="1" parent="1">
+          <mxGeometry x="1268" y="138" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="49" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;endFill=1;" edge="1" parent="1" source="41" target="42">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="50" value="«objectFlow»" style="dashed=1;strokeColor=#1e88e5;endArrow=block;endFill=1;" edge="1" parent="1" source="42" target="43">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="51" value="«objectFlow»" style="dashed=1;strokeColor=#1e88e5;endArrow=block;endFill=1;" edge="1" parent="1" source="43" target="44">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="52" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;endFill=1;" edge="1" parent="1" source="44" target="47">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="53" value="«objectFlow»" style="dashed=1;strokeColor=#1e88e5;endArrow=block;endFill=1;" edge="1" parent="1" source="44" target="45">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="54" value="«objectFlow»" style="dashed=1;strokeColor=#1e88e5;endArrow=block;endFill=1;" edge="1" parent="1" source="45" target="46">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="04 - Partitions — Client / DAB / Banque">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" page="1" pageWidth="1600" pageHeight="900" math="0" background="#ffffff">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="55" value="Client" style="swimlane;strokeColor=#616161;fontStyle=1;align=center;horizontal=1;startSize=26;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="450" height="700" as="geometry"/>
+        </mxCell>
+        <mxCell id="56" value="DAB" style="swimlane;strokeColor=#616161;fontStyle=1;align=center;horizontal=1;startSize=26;" vertex="1" parent="1">
+          <mxGeometry x="520" y="60" width="500" height="700" as="geometry"/>
+        </mxCell>
+        <mxCell id="57" value="Banque" style="swimlane;strokeColor=#616161;fontStyle=1;align=center;horizontal=1;startSize=26;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="60" width="500" height="700" as="geometry"/>
+        </mxCell>
+        <mxCell id="58" value="" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#111111;strokeColor=#111111;" vertex="1" parent="1">
+          <mxGeometry x="80" y="140" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="59" value="Composer le PIN" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="120" y="125" width="360" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="60" value="Vérifier PIN" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="560" y="125" width="420" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="61" value="Autoriser l’opération" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="125" width="420" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="62" value="" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#c62828;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="1530" y="130" width="36" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="63" value="" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#c62828;strokeColor=#c62828;" vertex="1" parent="1">
+          <mxGeometry x="1538" y="138" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="64" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;endFill=1;" edge="1" parent="1" source="58" target="59">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="65" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;endFill=1;" edge="1" parent="1" source="59" target="60">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="66" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;endFill=1;" edge="1" parent="1" source="60" target="61">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="67" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;endFill=1;" edge="1" parent="1" source="61" target="62">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="05 - Interruption — Carte avalée">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" page="1" pageWidth="1600" pageHeight="900" math="0" background="#ffffff">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="68" value="Région interruptible" style="shape=rect;rounded=1;dashed=1;dashPattern=8 4;strokeColor=#ef6c00;fillColor=#fff3e0;" vertex="1" parent="1">
+          <mxGeometry x="120" y="80" width="1000" height="420" as="geometry"/>
+        </mxCell>
+        <mxCell id="69" value="" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#111111;strokeColor=#111111;" vertex="1" parent="1">
+          <mxGeometry x="160" y="140" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="70" value="Lire la carte" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="210" y="125" width="260" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="71" value="Démarrer session" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="500" y="125" width="260" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="72" value="Attendre saisie PIN" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="800" y="125" width="260" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="73" value="«exception» Carte retenue" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="520" y="280" width="260" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="74" value="" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#c62828;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="900" y="280" width="36" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="75" value="" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#c62828;strokeColor=#c62828;" vertex="1" parent="1">
+          <mxGeometry x="908" y="288" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="76" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;endFill=1;" edge="1" parent="1" source="69" target="70">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="77" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;endFill=1;" edge="1" parent="1" source="70" target="71">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="78" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;endFill=1;" edge="1" parent="1" source="71" target="72">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="79" value="" style="strokeColor=#d32f2f;endArrow=block;endFill=0;dashed=1;" edge="1" parent="1" source="72" target="73">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="80" value="" style="strokeColor=#d32f2f;endArrow=block;endFill=1;" edge="1" parent="1" source="73" target="74">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="06 - Signal/Événement — Maintenance">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" page="1" pageWidth="1600" pageHeight="900" math="0" background="#ffffff">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="81" value="" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#111111;strokeColor=#111111;" vertex="1" parent="1">
+          <mxGeometry x="80" y="140" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="82" value="Attendre client" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="140" y="125" width="260" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="83" value="«receiveSignal»
+Signal: ModeMaintenance" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#2e7d32;" vertex="1" parent="1">
+          <mxGeometry x="470" y="80" width="220" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="84" value="«sendSignal»
+Signal: AlerteGuichet" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#2e7d32;" vertex="1" parent="1">
+          <mxGeometry x="470" y="220" width="220" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="85" value="Basculer en mode maintenance" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="740" y="125" width="280" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="86" value="" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#c62828;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="130" width="36" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="87" value="" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#c62828;strokeColor=#c62828;" vertex="1" parent="1">
+          <mxGeometry x="1068" y="138" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="88" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;endFill=1;" edge="1" parent="1" source="81" target="82">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="89" value="" style="strokeColor=#2e7d32;endArrow=block;endFill=1;dashed=1;" edge="1" parent="1" source="82" target="83">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="90" value="" style="strokeColor=#2e7d32;endArrow=block;endFill=1;" edge="1" parent="1" source="83" target="85">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="91" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;endFill=1;" edge="1" parent="1" source="85" target="86">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="92" value="" style="strokeColor=#2e7d32;endArrow=block;endFill=1;dashed=1;" edge="1" parent="1" source="82" target="84">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="07 - Sous-activité — Appel d’activité">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" page="1" pageWidth="1600" pageHeight="900" math="0" background="#ffffff">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="93" value="" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#111111;strokeColor=#111111;" vertex="1" parent="1">
+          <mxGeometry x="80" y="140" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="94" value="Vérifier identité
+«callBehavior»" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="140" y="125" width="300" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="95" value="" style="shape=triangle;direction=east;fillColor=#1565c0;strokeColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="410" y="150" width="14" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="96" value="Activité appelée: Vérification KYC" style="shape=rect;rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1565c0;" vertex="1" parent="1">
+          <mxGeometry x="500" y="120" width="320" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="97" value="" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#c62828;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="860" y="130" width="36" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="98" value="" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#c62828;strokeColor=#c62828;" vertex="1" parent="1">
+          <mxGeometry x="868" y="138" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="99" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;endFill=1;" edge="1" parent="1" source="93" target="94">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="100" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;endFill=1;" edge="1" parent="1" source="94" target="96">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="101" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;endFill=1;" edge="1" parent="1" source="96" target="97">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

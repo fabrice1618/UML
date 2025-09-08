@@ -1,0 +1,110 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0" version="28.2.0">
+  <diagram id="atm-state-1" name="ATM - États (exemple)">
+    <mxGraphModel dx="1228" dy="579" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ini" style="shape=ellipse;perimeter=ellipsePerimeter;html=1;fillColor=#000000;strokeColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="40" y="71" width="18" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="AttenteCarte" value="AttenteCarte" style="rounded=1;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;strokeColor=#1a1a1a;fillColor=#ffffff;spacing=4;" parent="1" vertex="1">
+          <mxGeometry x="90" y="50" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="LectureCarte" value="LectureCarte" style="rounded=1;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;strokeColor=#1a1a1a;fillColor=#ffffff;spacing=4;" parent="1" vertex="1">
+          <mxGeometry x="340" y="50" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="FinSession" style="shape=doubleEllipse;perimeter=ellipsePerimeter;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="727" y="540" width="26" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="AttentePIN" value="AttentePIN" style="rounded=1;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;strokeColor=#1a1a1a;fillColor=#ffffff;spacing=4;container=1;recursiveResize=0;" parent="1" vertex="1">
+          <mxGeometry x="550" y="40" width="400" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="PIN_init" style="shape=ellipse;perimeter=ellipsePerimeter;html=1;fillColor=#000000;strokeColor=#000000;" parent="AttentePIN" vertex="1">
+          <mxGeometry x="15" y="18" width="14" height="14" as="geometry" />
+        </mxCell>
+        <mxCell id="Saisie" value="Saisie" style="rounded=1;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;strokeColor=#1a1a1a;fillColor=#ffffff;spacing=4;" parent="AttentePIN" vertex="1">
+          <mxGeometry x="60" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="RetenirCarte" value="RetenirCarte" style="rounded=1;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;strokeColor=#1a1a1a;fillColor=#ffffff;spacing=4;" parent="AttentePIN" vertex="1">
+          <mxGeometry x="45" y="140" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e_pin_init_saisie" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#1a1a1a;labelBackgroundColor=#ffffff;" parent="AttentePIN" source="PIN_init" target="Saisie" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_saisie_self" value="pinInvalide / incTentatives()" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#1a1a1a;labelBackgroundColor=#ffffff;entryX=0.75;entryY=1;entryDx=0;entryDy=0;exitX=1;exitY=1;exitDx=0;exitDy=0;" parent="AttentePIN" source="Saisie" target="Saisie" edge="1">
+          <mxGeometry x="-0.1862" y="-80" relative="1" as="geometry">
+            <mxPoint x="180" y="30" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="240" y="70" />
+            </Array>
+            <mxPoint x="62" y="78" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_saisie_ret" value="tentatives&amp;gt;3 / aspirerCarte()" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#1a1a1a;labelBackgroundColor=#ffffff;" parent="AttentePIN" source="Saisie" target="RetenirCarte" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AuthTop" value="Authentifié" style="rounded=1;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;strokeColor=#1a1a1a;fillColor=#ffffff;spacing=4;" parent="1" vertex="1">
+          <mxGeometry x="990" y="40" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SelectionOp" value="SélectionOp" style="rounded=1;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;strokeColor=#1a1a1a;fillColor=#ffffff;spacing=4;" parent="1" vertex="1">
+          <mxGeometry x="1200" y="40" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RetraitEnCours" value="RetraitEnCours" style="rounded=1;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;strokeColor=#1a1a1a;fillColor=#ffffff;spacing=4;container=1;recursiveResize=0;" parent="1" vertex="1">
+          <mxGeometry x="1140" y="350" width="260" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="Ret_init" style="shape=ellipse;perimeter=ellipsePerimeter;html=1;fillColor=#000000;strokeColor=#000000;" parent="RetraitEnCours" vertex="1">
+          <mxGeometry x="16" y="22" width="14" height="14" as="geometry" />
+        </mxCell>
+        <mxCell id="Prelever" value="Prélever" style="rounded=1;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;strokeColor=#1a1a1a;fillColor=#ffffff;spacing=4;" parent="RetraitEnCours" vertex="1">
+          <mxGeometry x="50" y="10" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Ret_final" style="shape=doubleEllipse;perimeter=ellipsePerimeter;html=1;fillColor=#ffffff;strokeColor=#000000;" parent="RetraitEnCours" vertex="1">
+          <mxGeometry x="180" y="16" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="e_ret_init_prelever" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#1a1a1a;labelBackgroundColor=#ffffff;" parent="RetraitEnCours" source="Ret_init" target="Prelever" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_prelever_final" value="aprèsDébit" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#1a1a1a;labelBackgroundColor=#ffffff;" parent="RetraitEnCours" source="Prelever" target="Ret_final" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_ini_att" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#1a1a1a;labelBackgroundColor=#ffffff;" parent="1" source="ini" target="AttenteCarte" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_att_lc" value="carteInsérée / lirePiste()" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#1a1a1a;labelBackgroundColor=#ffffff;" parent="1" source="AttenteCarte" target="LectureCarte" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_lc_pin" value="carteValide / afficherÉcranPIN()" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#1a1a1a;labelBackgroundColor=#ffffff;" parent="1" source="LectureCarte" target="AttentePIN" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_lc_fin" value="carteInvalide / éjecterCarte()" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#1a1a1a;labelBackgroundColor=#ffffff;" parent="1" source="LectureCarte" target="FinSession" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_pin_timeout_fin" value="after(30s) / éjecterCarte()" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#1a1a1a;labelBackgroundColor=#ffffff;" parent="1" source="AttentePIN" target="FinSession" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_auth_sel" value="afficherMenu()" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#1a1a1a;labelBackgroundColor=#ffffff;" parent="1" target="SelectionOp" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1150" y="70" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_sel_retrait" value="choisirRetrait(montant)" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#1a1a1a;labelBackgroundColor=#ffffff;" parent="1" source="SelectionOp" target="RetraitEnCours" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_sel_fin" value="annuler / éjecterCarte()" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#1a1a1a;labelBackgroundColor=#ffffff;" parent="1" source="SelectionOp" target="FinSession" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_retrait_fin" value="billetsRemis / remercierClient()" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#1a1a1a;labelBackgroundColor=#ffffff;" parent="1" source="RetraitEnCours" target="FinSession" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Title" value="ATM - Diagramme d&#39;États (exemple draw.io)" style="text;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=18;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="10" width="520" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="e_saisie_auth" value="pinValide / resetTentatives()" style="endArrow=block;endFill=1;html=1;rounded=1;strokeColor=#1a1a1a;labelBackgroundColor=#ffffff;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="Saisie" target="AuthTop" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="92.20930232558135" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
