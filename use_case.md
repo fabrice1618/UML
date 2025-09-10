@@ -38,10 +38,102 @@
   - S’active si une **condition** (point d’extension) est vraie.
   - Ex. « Appliquer réduction » peut `<<extend>>` « Payer des frais » si l’utilisateur est éligible.
 - **Généralisation** (Acteurs ou UC) :
-  - Spécialise un rôle ou un service.
+  - Spécialise un rôle ou un service. La généralisation exprime “est-un/est-un cas particulier de”. L’élément spécialisé (enfant) hérite des relations et du comportement de l’élément plus général (parent), puis ajoute ou restreint des capacités.
   - Ex. Acteur « Personnel » généralisé en « Bibliothécaire » et « Gestionnaire ».
 
-Bonnes pratiques :
+### 3.1. Généralisation d’acteurs
+
+- Sens: spécialiser un rôle vis‑à‑vis du système.
+- Héritage: l’acteur enfant hérite de toutes les associations (liens) du parent vers les UC.
+- Quand l’utiliser:
+  - Un rôle A fait tout ce que fait RôleGénéral, plus des actions supplémentaires.
+  - Vous voulez éviter de dupliquer les mêmes liens vers de nombreux UC.
+- À éviter:
+  - Refléter la hiérarchie RH de l’entreprise (on modélise des rôles, pas des postes).
+  - Créer une généralisation si les rôles n’ont pas de comportements communs significatifs.
+
+Exemple “Personnel” généralisé en “Bibliothécaire” et “Gestionnaire”
+- tout “Personnel” peut se connecter et consulter le catalogue.
+- “Bibliothécaire” ajoute “Cataloguer ouvrage”.
+- “Gestionnaire” ajoute “Gérer comptes usagers”.
+
+
+![alt text](images/usecase_generalisation_acteur.png)
+
+```plantuml
+@startuml
+left to right direction
+actor "Usager" as Usager
+actor "Personnel" as Staff
+actor "Bibliothécaire" as Biblio
+actor "Gestionnaire" as Gest
+
+' Généralisation d'acteurs
+Biblio -|> Staff
+Gest   -|> Staff
+
+' UC partagés par Personnel (hérités par Biblio et Gest)
+(Se connecter) as Login
+(Consulter catalogue) as Browse
+
+Staff --> Login
+Staff --> Browse
+
+' UC spécifiques
+Biblio --> (Cataloguer ouvrage)
+Gest   --> (Gérer comptes usagers)
+Usager --> (Emprunter ressource)
+@enduml
+```
+
+### 3.2. Généralisation de cas d’utilisation (UC)
+
+- Sens: un UC enfant est une forme plus spécifique d’un UC parent (même intention globale, scénario plus spécialisé).
+- Héritage: l’enfant hérite de la relation aux acteurs et des étapes communes; il précise, restreint ou enrichit des variantes.
+- Quand l’utiliser:
+  - Vous avez une intention “générique” avec des variantes substantielles et stables.
+  - Les UC enfants partagent une grande partie des étapes.
+- À ne pas confondre:
+  - include: factorise une sous‑fonction obligatoire réutilisable.
+  - extend: ajoute un scénario optionnel/conditionnel au parent.
+  - généralisation: crée une famille d’UC où l’enfant est “un type particulier de” l’UC parent.
+
+Exemple “Emprunter ressource” spécialisé
+- Parent: Emprunter ressource
+- Enfants: Emprunter livre, Emprunter DVD (mêmes étapes clés, règles spécifiques selon le type)
+
+![alt text](images/usecase_generalisation_UC.png)
+
+```plantuml
+@startuml
+left to right direction
+actor "Usager" as Usager
+
+(Emprunter ressource) as Borrow
+(Emprunter livre) as BorrowBook
+(Emprunter DVD) as BorrowDVD
+
+' Généralisation d'UC (enfants vers parent)
+BorrowBook -|> Borrow
+BorrowDVD  -|> Borrow
+
+' Les acteurs se lient au parent; les enfants héritent
+Usager --> Borrow
+@enduml
+```
+
+Petite grille de décision
+- A ou B partagent la majorité des interactions et l’un est un cas particulier de l’autre → généralisation.
+- Un bloc d’étapes commun à plusieurs UC, exécuté à chaque fois → include.
+- Une variante optionnelle/sous condition d’un scénario → extend.
+- Deux rôles différents sans héritage logique de comportements → acteurs séparés, pas de généralisation.
+
+Bénéfices
+- Réduction de la duplication (liens et descriptions).
+- Modèles plus lisibles: on visualise les capacités communes et les spécialisations.
+- Évolution facilitée: un changement dans le parent se propage aux enfants.
+
+### Bonnes pratiques :
 - Utiliser `<<include>>` pour la **réutilisation systématique**.
 - Utiliser `<<extend>>` pour des **variantes** et **options**.
 - Ne pas abuser de la généralisation : préférer la clarté à l’élégance excessive.
@@ -111,8 +203,8 @@ Gabarit Markdown (à copier-coller) :
 3. …
 
 ### Scénarios alternatifs / Exceptions
-A1. [Depuis étape X] Condition… → …
-E1. [Depuis étape Y] Erreur… → …
+- A1. [Depuis étape X] Condition… → …
+- E1. [Depuis étape Y] Erreur… → …
 
 ### Règles métier
 - RM-1 : …
@@ -211,11 +303,12 @@ Anti‑patterns fréquents :
 10. Le DAB termine la session.
 
 #### Scénarios alternatifs / Exceptions
-A1. [Depuis étape 4] Le client choisit une somme prédéfinie (ex. 20/50/100 €) → Aller en 5.
-A2. [Depuis étape 5] Provision insuffisante mais autorisation de découvert → Continuer en 6 avec le découvert autorisé.
-E1. [Depuis étape 2] Échec d’authentification (3 PIN erronés) → Carte avalée, session terminée.
-E2. [Depuis étape 5] Provision insuffisante et aucun découvert → Message “Fonds insuffisants”, fin de session.
-E3. [Depuis étape 7] Échec de débit/reply time-out → Annulation transaction et message d’échec, fin de session.
+
+- A1. [Depuis étape 4] Le client choisit une somme prédéfinie (ex. 20/50/100 €) → Aller en 5.
+- A2. [Depuis étape 5] Provision insuffisante mais autorisation de découvert → Continuer en 6 avec le découvert autorisé.
+- E1. [Depuis étape 2] Échec d’authentification (3 PIN erronés) → Carte avalée, session terminée.
+- E2. [Depuis étape 5] Provision insuffisante et aucun découvert → Message “Fonds insuffisants”, fin de session.
+- E3. [Depuis étape 7] Échec de débit/reply time-out → Annulation transaction et message d’échec, fin de session.
 
 #### Règles métier
 - RM-1 : Le montant demandé doit respecter le plafond quotidien et les limites par opération fixés par la banque.
@@ -244,9 +337,9 @@ E3. [Depuis étape 7] Échec de débit/reply time-out → Annulation transaction
 4. Authentification validée ; poursuite du cas appelant.
 
 #### Scénarios alternatifs / Exceptions
-A1. [Depuis étape 1] Le client insère une carte avec authent biométrique activée → Capture biométrique puis vérification.
-E1. [Depuis étape 3] PIN erroné (tentative < 3) → Reboucler à l’étape 1.
-E2. [Depuis étape 3] PIN erroné (3e tentative) → Carte avalée, session terminée.
+- A1. [Depuis étape 1] Le client insère une carte avec authent biométrique activée → Capture biométrique puis vérification.
+- E1. [Depuis étape 3] PIN erroné (tentative < 3) → Reboucler à l’étape 1.
+- E2. [Depuis étape 3] PIN erroné (3e tentative) → Carte avalée, session terminée.
 
 #### Règles métier
 - RM-1 : Nombre maximal de tentatives consécutives = 3.
@@ -271,8 +364,8 @@ E2. [Depuis étape 3] PIN erroné (3e tentative) → Carte avalée, session term
 3. Le DAB imprime le reçu et met à jour le journal.
 
 #### Scénarios alternatifs / Exceptions
-A1. [Depuis étape 1] Le client refuse → Fin de l’extension sans impact sur UC-01.
-E1. [Depuis étape 3] Plus de papier / imprimante en défaut → Afficher message et offrir reçu dématérialisé si disponible.
+- A1. [Depuis étape 1] Le client refuse → Fin de l’extension sans impact sur UC-01.
+- E1. [Depuis étape 3] Plus de papier / imprimante en défaut → Afficher message et offrir reçu dématérialisé si disponible.
 
 #### Règles métier
 - RM-1 : Le solde imprimé peut être “solde estimé” selon la latence de compensation.
@@ -297,8 +390,8 @@ E1. [Depuis étape 3] Plus de papier / imprimante en défaut → Afficher messag
 4. Retour vers UC-01 à l’étape 7 (débit et distribution).
 
 #### Scénarios alternatifs / Exceptions
-A1. [Depuis étape 2] Le client choisit “Annuler” → UC-01 se termine sans débit.
-E1. [Depuis étape 3] Aucun montant alternatif possible → UC-01 se termine, consigne envoyée à la supervision.
+- A1. [Depuis étape 2] Le client choisit “Annuler” → UC-01 se termine sans débit.
+- E1. [Depuis étape 3] Aucun montant alternatif possible → UC-01 se termine, consigne envoyée à la supervision.
 
 #### Règles métier
 - RM-1 : Les propositions tiennent compte des cassettes actives et des priorités de distribution.
@@ -323,8 +416,8 @@ E1. [Depuis étape 3] Aucun montant alternatif possible → UC-01 se termine, co
 3. Le DAB confirme la sélection au cas appelant.
 
 ##### Scénarios alternatifs / Exceptions
-A1. [Depuis étape 1] Un compte est pré‑défini par préférence client → Sélection automatique.
-E1. [Depuis étape 1] Aucune réponse (timeout) → Annulation et retour à l’écran d’accueil.
+- A1. [Depuis étape 1] Un compte est pré‑défini par préférence client → Sélection automatique.
+- E1. [Depuis étape 1] Aucune réponse (timeout) → Annulation et retour à l’écran d’accueil.
 
 ##### Règles métier
 - RM-1 : Seuls les comptes autorisés aux retraits DAB sont listés.
@@ -344,11 +437,4 @@ E1. [Depuis étape 1] Aucune réponse (timeout) → Annulation et retour à l’
 - Une fiche textuelle par UC (gabarit fourni plus haut).
 - Justification brève de chaque `<<include>>` / `<<extend>>`.
 - Liste des règles métier référencées (RM‑x) et leur couverture par les UC.
-
----
-
-## 13. Références conseillées
-
-- OMG UML — Use Case Diagrams (spécification officielle, section dédiée). Fichier: OMG_UML_2.5.1.pdf
-- uml2-apprentissage-pratique.pdf
 

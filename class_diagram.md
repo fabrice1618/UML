@@ -259,7 +259,7 @@ classDiagram
 
 ---
 
-## 14) Références pour approfondir
+## 14) Pour approfondir
 - Spécification UML (OMG): structure et sémantique des diagrammes.
 - OCL (Object Constraint Language) pour exprimer des invariants.
 - Bonnes pratiques DDD (Domain-Driven Design) pour structurer le modèle.

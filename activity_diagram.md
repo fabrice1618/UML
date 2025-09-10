@@ -58,7 +58,7 @@ Conseil de nommage:
 - Modèle structuré: une **Activity Region** annotée “loop” avec parties init/itération/sortie (selon notation outillée).
 - Toujours expliciter la condition d’arrêt.
 
-## 7) SwIMLANES (Partitions)
+## 7) Swimlanes (Partitions)
 - Objectif: clarifier “qui fait quoi”.
 - Un couloir par **acteur**, **service**, **système** ou **équipe**.
 - Déplacer l’action dans le couloir du **propriétaire** de l’exécution (pas forcément l’émetteur de données).
@@ -192,4 +192,3 @@ Conseil de nommage:
 - Flow Final vs Activity Final: fin d’un flux vs fin de l’activité entière.
 - Flux d’objet: transport de données entre actions.
 
----

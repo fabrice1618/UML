@@ -12,18 +12,16 @@
 
 ## Contexte général
 Vous allez modéliser un système de gestion de bibliothèque municipale afin de capturer les besoins métier et de produire un mini-dossier UML cohérent.  
-Le travail s’effectue en groupes et s’étale sur deux séances. Les livrables sont des schémas réalisés avec draw.io et une courte description textuelle (en Markdown) intégrée à chaque partie.
+Le travail s’effectue en groupes et s’étale sur deux séances. Les livrables sont les schémas UML et une courte description textuelle (en Markdown) intégrée à chaque partie.
 
 ## Livrables et format attendus
 
-- Un fichier unique draw.io contenant plusieurs pages (onglets) :
+- Diagrammes UML :
   - `UC — Cas d’utilisation`
   - `CL — Diagramme de classes`
   - `ACT — Emprunter un livre (diagramme d’activités)`
   - `STATE — Cycle de vie Livre (diagramme d’états-transitions)`
   - `SEQ — Emprunter un livre (diagramme de séquence)`
-- Le présent énoncé rempli (ce fichier Markdown) annoté par vos hypothèses majeures et les règles découvertes/choisies.
-- Nommez le fichier draw.io: `bibliotheque_UML.drawio`.
 
 ## Introduction à l’exercice — Règles métier à découvrir pendant l’atelier
 Votre objectif est de faire émerger (puis d’expliciter) les règles métier suivantes. Elles ne sont **pas** toutes figées : vous devez les préciser, les discuter et les justifier dans vos modèles et notes.
@@ -82,7 +80,7 @@ Indiquez clairement toute hypothèse ajoutée et justifiez-la.
   3. Pour 2 cas d’utilisation majeurs (« Emprunter un livre », « Réserver un livre »), rédigez une **description textuelle**:
      - Scénario nominal (pas-à-pas).
      - Règles/gardes (conditions), exceptions et alternatives (retard, exemplaire non disponible, compte bloqué, réservation en file d’attente, etc.).
-- Livrable: Page `UC — Cas d’utilisation` dans le fichier draw.io + notes textuelles dans ce Markdown.
+- Livrable: Diagramme `UC — Cas d’utilisation`  + notes textuelles en Markdown.
 
 ### Partie B — Diagramme de Classes
 - [Réaliser un diagramme de Classes](class_diagram.md)
@@ -92,7 +90,7 @@ Indiquez clairement toute hypothèse ajoutée et justifiez-la.
   1. Dérivez les **classes** à partir des cas d’utilisation et des règles: proposez les **attributs** clés (ex.: pour Emprunt: dateEmprunt, dateEcheance, nbRenouvellements).
   2. Spécifiez les **associations**, **multiplicités** et, si pertinent, **agrégations/compositions** (ex.: Livre 1..* Exemplaire).
   3. Faites figurer des **contraintes** (texte ou OCL libre) près des associations/attributs (ex.: « un exemplaire non empruntable ne peut pas être réservé » — si vous adoptez cette règle).
-- Livrable: Page `CL — Diagramme de classes` dans draw.io.
+- Livrable: Diagramme `CL — Diagramme de classes`
 
 ---
 
@@ -105,7 +103,7 @@ Indiquez clairement toute hypothèse ajoutée et justifiez-la.
   1. Utilisez des **partitions (swimlanes)** pour « Adhérent », « Bibliothécaire », « Système ».
   2. Modélisez: recherche, vérification d’éligibilité (compte non bloqué, quotas), sélection d’un exemplaire, enregistrement de l’emprunt, mise à jour du stock, envoi d’accusé/notification.
   3. Ajoutez des **décisions/fusions** pour les alternatives: compte bloqué, aucun exemplaire disponible, réservation en attente, etc.
-- Livrable: Page `ACT — Emprunter un livre`.
+- Livrable: Diagramme `ACT — Emprunter un livre`.
 
 ### Partie D — Diagramme d’États-Transitions
 - [Réaliser un diagramme d’États-Transitions](state_diagram.md)
@@ -114,7 +112,7 @@ Indiquez clairement toute hypothèse ajoutée et justifiez-la.
 - Tâches
   1. Définissez les **événements** (emprunter(), rendre(), réserver(), annulerReservation(), déclarerPerdu(), envoyerEnReparation(), réparer()).
   2. Indiquez les **gardes** (ex.: [compte éligible], [pas de réservation prioritaire]) et **actions** (ex.: incrémenter compteur d’emprunts, notifier suivant de la file).
-- Livrable: Page `STATE — Cycle de vie Livre`.
+- Livrable: Diagramme `STATE — Cycle de vie Livre`.
 
 ### Partie E — Diagramme de Séquence
 - [Réaliser un diagramme de Séquence](sequence_diagram.md)
@@ -123,7 +121,7 @@ Indiquez clairement toute hypothèse ajoutée et justifiez-la.
   1. Identifiez les **lignes de vie**: Adhérent, InterfaceBibliothèque, ServiceEmprunts, RépertoireExemplaires, ServiceNotifications (adapter selon votre modèle).
   2. Tracez les **messages** synchrones/asynchrones, fragments (alt/loop) pour gérer les alternatives (compte bloqué, aucun exemplaire).
   3. Assurez la **cohérence** avec le diagramme d’activités et les règles métier.
-- Livrable: Page `SEQ — Emprunter un livre`.  
+- Livrable: Diagramme `SEQ — Emprunter un livre`.  
 - Synthèse: Vérifiez l’alignement entre:
   - Cas d’utilisation (le quoi),
   - Classes (le qui),
@@ -147,3 +145,7 @@ Indiquez clairement toute hypothèse ajoutée et justifiez-la.
 - Quelles notifications et à quels instants (création emprunt, rappel avant échéance, disponibilité réservation) ?
 - Quels cas sont en `<<include>>` ou `<<extend>>` (ex.: « Payer amende » étend « Rendre un livre » en cas de retard) ?
 
+## Références conseillées
+
+- [OMG UML](supports/OMG_UML_2.5.1.pdf). Fichier: OMG_UML_2.5.1.pdf
+- [UML2 Apprentissage pratique](supports/uml2-apprentissage-pratique.pdf). Fichier: uml2-apprentissage-pratique.pdf
