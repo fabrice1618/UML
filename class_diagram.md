@@ -53,32 +53,167 @@ Exemple (notation textuelle):
 
 ## 3) Relations entre classes
 
-### 3.1 Association
-- Lien structurel entre classes; peut être nommée et orientée.
-- Multiplicités aux extrémités: `0..1`, `1`, `0..*`, `1..*`, `1..5`, `*` (non borné).
-- Rôles: nom des extrémités (p.ex. `client`, `commandes`).
-- Navigabilité: flèche ouverte vers la cible si unidirectionnelle.
+Dans un système orienté objet, les classes coopèrent pour rendre un service. Les liens entre classes capturent ces coopérations. On distingue six relations de base en UML, qui se différencient par leur intention (avoir/utiliser/être), leur durée (durable/temporaire) et leur notation.
 
-Exemple: `Client 1 ---- 0..* Commande` (rôle côté Commande: `commandes`)
+Relation | Intention | Durée | Cardinalité | Notation UML
+---|---|---|---|---
+Association | « avoir / collaborer avec » | durable | oui | Trait plein (flèches pour la navigabilité)
+Agrégation | « a des (parties partageables) » | durable | oui | Trait plein + losange vide côté agrégat
+Composition | « est composé de (parts non partageables) » | durable | oui | Trait plein + losange plein côté composite
+Généralisation (Héritage) | « est-un » | durable | non | Flèche triangle blanc vers la super-classe
+Réalisation (classe → interface) | « s’engage à fournir » | durable | non | Triangle blanc en pointillé vers l’interface
+Dépendance | « utilise ponctuellement » | temporaire | non | Flèche pointillée vers l’élément utilisé
+
+Conseils pratiques
+- Cardinalités: 0..1, 1, 0..*, 1..*, 1..n, * (non borné).
+- Rôles: nommer chaque extrémité clarifie la lecture (ex. « carte », « transactions »).
+- Navigabilité: flèche(s) si un seul sens; sans flèche = bidirectionnel.
+- Choisir la relation la plus faible qui transmet l’intention: préférer l’association à l’agrégation, et l’agrégation à la composition, sauf nécessité.
+
+---
+
+### 3.1 Association
+
+Une association exprime un lien sémantique durable entre classes. Elle peut être bidirectionnelle ou unidirectionnelle (navigabilité). On y précise les rôles et les multiplicité(s).
+
+Exemple (ATM): une Session est liée au Compte authentifié pendant l’opération.
+
+```mermaid
+classDiagram
+  direction LR
+  class Session
+  class Compte
+  Session "1" --> "1" Compte : association
+```
+
+Notes
+- Rôle côté Compte: « compteCourant » (du point de vue de Session).
+- Navigabilité unidirectionnelle: Session connaît le Compte; l’inverse n’est pas nécessaire.
+- Cardinalité «1–1» car une session authentifiée travaille sur un seul compte.
+
+---
 
 ### 3.2 Agrégation (losange vide)
-- Relation «partie-tout» faible (les parties peuvent exister sans le tout).
-- Notation: losange blanc côté agrégat.
+
+L’agrégation est une relation «partie–tout» faible: les parties peuvent exister indépendamment et être partagées. À utiliser avec parcimonie; souvent une simple association suffit.
+
+Exemple (ATM): une Carte référence un Compte; le Compte existe sans la Carte et peut être relié à plusieurs cartes (compte joint, duplicata).
+
+```mermaid
+classDiagram
+  direction LR
+  class Carte
+  class Compte
+  Carte "1" o--> "1" Compte : agrégation
+```
+
+Notes
+- Le « tout » (agrégat) est la Carte ici (notation mermaid côté source).
+- Le Compte n’est pas détruit quand une Carte est invalidée.
+
+---
 
 ### 3.3 Composition (losange plein)
-- Relation «partie-tout» forte (cycle de vie des parties lié au tout).
-- Notation: losange noir côté composite.
-- Règle: une partie n’a qu’un composite à la fois et n’existe pas sans lui.
+
+La composition est une relation «partie–tout» forte: la partie n’existe pas sans le composite et n’appartient qu’à lui. Le composite est responsable du cycle de vie des parties.
+
+Exemple (ATM): un ATM est composé d’un LecteurCarte, d’un Écran et d’un DispensateurBillets.
+
+```mermaid
+classDiagram
+  direction LR
+  class ATM
+  class LecteurCarte
+  class Ecran
+  class DispensateurBillets
+  ATM "1" *--> "1" LecteurCarte : composition
+  ATM "1" *--> "1" Ecran : composition
+  ATM "1" *--> "1" DispensateurBillets : composition
+```
+
+Exemple (ATM – logique métier): une Session possède ses Transactions métier; détruire la Session met fin à leurs objets internes.
+
+```mermaid
+classDiagram
+  direction LR
+  class Session
+  class Transaction
+  Session "1" *--> "0..*" Transaction : composition
+```
+
+---
 
 ### 3.4 Généralisation / Héritage
-- Flèche triangle blanc vers la super-classe.
-- Une sous-classe hérite attributs/opérations et peut ajouter/affiner.
 
-### 3.5 Réalisation (classe -> interface)
-- Triangle blanc en pointillé, de la classe concrète vers l’interface.
+La généralisation modélise un lien «est-un». La sous-classe hérite attributs/opérations du parent et peut spécialiser/ajouter des comportements.
+
+Exemple (ATM): Retrait et ConsultationSolde sont des spécialisations d’Opération.
+
+```mermaid
+classDiagram
+  direction LR
+  class Operation
+  class OperationRetrait
+  class OperationConsultationSolde
+  OperationRetrait --|> Operation : héritage
+  OperationConsultationSolde --|> Operation : héritage
+```
+
+Bonnes pratiques
+- Le parent porte le comportement commun (validation session, journalisation de base).
+- Les enfants ajoutent la logique spécifique (montant, contrôle de solde, dispense de billets, etc.).
+
+---
+
+### 3.5 Réalisation (classe → interface)
+
+Une réalisation relie une classe concrète à une interface qu’elle s’engage à implémenter. Utile pour varier les stratégies sans couplage fort.
+
+Exemple (ATM): différents modules de journalisation implémentent l’interface IJournalisation.
+
+```mermaid
+classDiagram
+  direction LR
+  class IJournalisation
+  <<interface>> IJournalisation
+  class JournalCSV
+  class JournalSyslog
+  JournalCSV ..|> IJournalisation : réalisation
+  JournalSyslog ..|> IJournalisation : réalisation
+```
+
+---
 
 ### 3.6 Dépendance
-- Lien ponctillé avec flèche ouverte: une modification de la cible peut impacter la source (utilisation, paramètre, retour, création).
+
+Une dépendance indique qu’une classe en «utilise» une autre de manière temporaire (paramètre, valeur de retour, variable locale, appel indirect). Les dépendances détaillent l’implémentation; on les montre avec parcimonie.
+
+Exemple (ATM): l’ATM collabore ponctuellement avec un ServiceBanque pour autoriser un retrait.
+
+```mermaid
+classDiagram
+  direction LR
+  class ATM
+  class ServiceBanque
+  ATM ..> ServiceBanque : dépendance (autoriserRetrait)
+```
+
+---
+
+### Choisir la bonne relation — grille rapide (ATM)
+
+- Association: Session — Compte (collaboration durable durant la session).
+- Agrégation: Carte o--> Compte (le compte existe sans la carte; partage possible).
+- Composition: ATM *--> LecteurCarte / Écran / DispensateurBillets; Session *--> Transaction.
+- Généralisation: OperationRetrait, OperationConsultationSolde --|> Operation.
+- Réalisation: JournalCSV ..|> IJournalisation.
+- Dépendance: ATM ..> ServiceBanque (appel de service externe).
+
+### Rappels de modélisation
+- Cardinalité exprime «combien d’instances» sont reliées.
+- Rôle nomme la perspective de l’extrémité (ex. «transactions», «carte», «compteCourant»).
+- Navigabilité contrôle qui «connaît» qui; limitez-la pour réduire le couplage.
+- Commencez simple (associations), ne durcissez (agrégation/composition) que si le cycle de vie l’exige.
 
 ---
 
